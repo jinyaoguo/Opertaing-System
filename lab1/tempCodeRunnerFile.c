@@ -1,0 +1,1 @@
+struct map *pointer;                //指向当前空闲区的指针

@@ -74,16 +74,14 @@ void handle_input(){
         scanf("%c",&choice);
         switch (choice){
         case 'm':
-            printf("alloc\n");
             scanf("%u",&size);
-            printf("size %u \n",size);
+            printf("alloc size %u \n",size);
             lmalloc(size);
             print_freemap();
             break;
         case 'f':
-            printf("free\n");
             scanf("%u %u", &size, &addr);
-            printf("size:%u, addr:%u\n",size,addr);
+            printf("free size:%u, addr:%u\n",size,addr);
             bool isFree = lfree(size, (char*) addr);
             if(isFree){
                 print_freemap();
@@ -125,7 +123,7 @@ char* lmalloc(unsigned size) {
     if(flag)    
         return new_map->m_addr;
     else{
-        printf("err: Failed to alloc memory--space is not enough.");
+        printf("err: Failed to alloc memory--space is not enough.\n");
         free(new_map);
         return NULL; 
     }
